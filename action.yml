@@ -1,0 +1,32 @@
+name: "Mender Artifact Uploader"
+description: "Upload mender artifact to the mender server"
+author: "Quartx(William Forde)"
+inputs:
+  artifact:
+    description: "The mender artifact file"
+    required: true
+  username:
+    description: "The login username"
+    required: true
+  password:
+    description: "The login password"
+    required: true
+  server:
+    description: "The url to the mender server"
+    required: false
+    default: "https://hosted.mender.io"
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        curl https://downloads.mender.io/mender-cli/1.7.0/linux/mender-cli --output /usr/local/bin/mender-cli
+        chmod +x /usr/local/bin/mender-cli
+
+    - shell: bash
+      run: |
+        mender-cli login --username "${{ inputs.username }}" --password "${{ inputs.password }}" --server "${{ inputs.server }}"
+        mender-cli artifacts upload "${{ inputs.artifact }}" --server "${{ inputs.server }}"
+branding:
+  icon: 'briefcase'
+  color: 'purple'
