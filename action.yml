@@ -1,5 +1,5 @@
 name: "Mender Artifact Uploader"
-description: "Upload mender artifact to the mender server"
+description: "Upload mender artifact to a mender server"
 author: "Quartx(William Forde)"
 inputs:
   artifact:
