@@ -7,6 +7,8 @@ Refer [mender](https://mender.io/)
 # Usage
 See [action.yml](action.yml)
 
+See [Mender docker-compose action](https://github.com/quartx-analytics/mender-docker-compose)
+
 
 ### Create Artifact
 ```yaml
@@ -15,7 +17,7 @@ steps:
 
   - id: mender
     name: Create mender artifact
-    uses: quartx-analytics/mender-docker-compose@v1.1.1
+    uses: quartx-analytics/mender-docker-compose@v1.1.2
     with:
       compose-file: "docker-compose.yml"
       software-name: "project-name"
