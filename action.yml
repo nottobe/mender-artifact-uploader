@@ -20,7 +20,7 @@ runs:
   steps:
     - shell: bash
       run: |
-        curl https://downloads.mender.io/mender-cli/1.7.0/linux/mender-cli --output /usr/local/bin/mender-cli
+        curl https://downloads.mender.io/mender-cli/1.9.0/linux/mender-cli --output /usr/local/bin/mender-cli
         chmod +x /usr/local/bin/mender-cli
 
     - shell: bash
